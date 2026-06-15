@@ -71,10 +71,10 @@
 //                    | ALT | LWR | SPC/L3 |               | ENT/L3 | RSE | ALT |
             display-name = "Dvorak";
             bindings = <
-&kp TAB    &kp SQT   &kp COMMA  &kp DOT   &kp P   &kp Y                               &kp UP                &kp F        &kp G   &kp C      &kp R    &kp L      &kp DEL
+&kp TAB    &kp SQT   &kp COMMA  &kp DOT   &kp P   &kp Y                               &kp UP                &kp F        &kp G   &kp C      &kp R    &kp L      &kp QMARK
 &td0       &kp A     &kp O      &kp E     &kp U   &kp I             &kp LEFT  &kp ENTER  &kp RIGHT  &kp D        &kp H   &kp T      &kp N    &kp S      &kp MINUS
 &kp LCTRL  &kp SEMI  &kp Q      &kp J     &kp K   &kp X  &kp SPACE            &kp DOWN              &kp B        &kp M   &kp W      &kp V    &kp Z      &kp ESC
-                                &kp LALT  &kp LGUI  &lt 1 SPACE                                     &lt 2 BSPC   &kp RET  &to 4
+                                &kp LALT  &kp LGUI  &lt 1 SPACE                                     &kp BSPC     &lt 2 RET  &to 4
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
