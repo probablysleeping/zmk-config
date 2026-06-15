@@ -2,9 +2,9 @@
 # Run from PowerShell: .\flash.ps1
 
 $firmware = @(
-    @{ name = "Dongle";        file = "eyelash_corne_dongle-nice_nano_v2-zmk.uf2";          reset = $true },
-    @{ name = "Left Half";     file = "eyelash_corne_left_peripheral-nice_view-zmk.uf2";    reset = $true },
-    @{ name = "Right Half";    file = "eyelash_corne_right_peripheral-nice_view-zmk.uf2";   reset = $true }
+    @{ name = "Dongle";        file = "eyelash_corne_dongle.uf2" },
+    @{ name = "Left Half";     file = "eyelash_corne_left_peripheral.uf2" },
+    @{ name = "Right Half";    file = "eyelash_corne_right_peripheral.uf2" }
 )
 
 $resetFile = "settings_reset-nice_nano_v2-zmk.uf2"
