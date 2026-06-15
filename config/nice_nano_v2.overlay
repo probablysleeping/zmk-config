@@ -1,42 +1,21 @@
 #include <physical_layouts.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&pinctrl {
-    spi0_default: spi0_default {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                    <NRF_PSEL(SPIM_MISO, 0, 25)>;
-        };
-    };
-    spi0_sleep: spi0_sleep {
-        group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                    <NRF_PSEL(SPIM_MISO, 0, 25)>;
-            low-power-enable;
-        };
-    };
-};
-
 &i2c0 {
-    status = "disabled";
-};
-
-nice_view_spi: &spi0 {
-    compatible = "nordic,nrf-spim";
     status = "okay";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
 
-    nice_view: ls0xx@0 {
-        compatible = "sharp,ls0xx";
-        spi-max-frequency = <1000000>;
-        reg = <0>;
-        width = <160>;
-        height = <68>;
+    oled: sh1106@3c {
+        compatible = "sinowealth,sh1106";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <2>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        prechargep = <0x22>;
     };
 };
 
@@ -45,7 +24,7 @@ nice_view_spi: &spi0 {
         zmk,kscan = &mock_kscan;
         zmk,matrix-transform = &default_transform;
         zmk,physical-layout = &default_layout;
-        zephyr,display = &nice_view;
+        zephyr,display = &oled;
     };
 
     mock_kscan: kscan {
