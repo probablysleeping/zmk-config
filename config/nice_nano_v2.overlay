@@ -1,6 +1,10 @@
 #include <physical_layouts.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 
+&nice_view_spi {
+    cs-gpios = <&gpio0 6 GPIO_ACTIVE_HIGH>;
+};
+
 / {
     chosen {
         zmk,kscan = &mock_kscan;
