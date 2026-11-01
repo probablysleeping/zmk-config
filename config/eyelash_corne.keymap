@@ -27,17 +27,6 @@
             tap-ms = <100>;
         };
 
-        // tap = space, hold = PUNC layer; fast typing always gives a space
-        lt_spc: lt_spc {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <125>;
-            bindings = <&mo>, <&kp>;
-        };
-
         // bracket pairs: tap = open, shift+tap = close
         br_par: br_par {
             compatible = "zmk,behavior-mod-morph";
@@ -105,7 +94,7 @@
 // | TAB  |  '  |  ,  |  .  |  P  |  Y  |        ↑        |  F  |  G  |  C  |  R  |  L  |  /   |
 // | CTRL |  A  |  O  |  E  |  U  |  I  |  ←  |  ●  |  →  |  D  |  H  |  T  |  N  |  S  |  -   |
 // | SHFT |  ;  |  Q  |  J  |  K  |  X  |     |  ↓        |  B  |  M  |  W  |  V  |  Z  | / RSFT |
-//                    | ALT |SUPER| SPC/PUNC |            | BSPC| ENT | MO1 |
+//                    | ALT |SUPER|   SPC    |            | BSPC| ENT | MO1 |
 // F switch dead -> G+C combo.  / switch dead -> tap RSHFT for /, shift+tap for ?
             bindings = <
 &kp TAB   &kp SQT  &kp COMMA &kp DOT  &kp P    &kp Y                                &mmv MOVE_UP
@@ -117,7 +106,7 @@
 &kp LSHFT &kp SEMI &kp Q     &kp J    &kp K    &kp X                &kp C_MUTE      &mmv MOVE_DOWN
 &kp B     &kp M    &kp W     &kp V    &kp Z    &mt RSHFT FSLH
 
-&kp LALT  &kp LGUI &lt_spc 2 SPACE
+&kp LALT  &kp LGUI &kp SPACE
 &kp BSPC  &kp RET  &mo 1
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -129,7 +118,7 @@
 // | TAB |  1  |  2  |  3  |  4  |  5  |        ↑        |  6  |  7  |  8  |  9  |  0  | DEL |
 // | CTRL| ALL | SAVE| DSEL| FIND| SS  |  ←  |  ●  |  →  |CTRLY| LFT | DWN |  UP | RGT |CTRLL|
 // | SHFT| UNDO| CUT | COPY|PASTE|CTRLT|     |  ↓        |CTRLW| TO3 | TO4 | TO5 | TO8 | TO10   |
-//                   | MO7 |SUPER| SPC |                 |ALTF4|    |     |
+//                   | MO7 |SUPER| PUNC|                 |ALTF4|    |     |
             bindings = <
 &kp TAB   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                                &kp LG(UP)                      
 &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp DEL
@@ -140,7 +129,7 @@
 &kp LSHFT  &kp LC(Z)  &kp LC(X)  &kp LC(C)   &kp LC(V) &kp LC(T)              &none     &kp LG(DOWN)                     
 &kp LC(W)  &to 3   &to 4   &to 5 &to 8    &to 10
                             
-&mo 7     &kp LGUI    &kp SPACE
+&mo 7     &kp LGUI    &mo 2
 &kp LA(F4)   &trans    &trans
             >;
             sensor-bindings = <&scroll_encoder>;
